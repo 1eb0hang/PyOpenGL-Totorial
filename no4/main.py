@@ -225,8 +225,9 @@ class App:
             model_transform = pyrr.matrix44.create_identity(dtype=np.float32)
             model_transform = pyrr.matrix44.multiply(
                 m1=model_transform,
-                m2=pyrr.matrix44.create_from_eulers(
-                    eulers=np.radians(self.cube.eulers),
+                m2=pyrr.matrix44.create_from_axis_rotation(
+                    axis=[0, 1, 0],
+                    theta=np.radians(self.cube.eulers[2]),
                     dtype=np.float32
                 )
             )
